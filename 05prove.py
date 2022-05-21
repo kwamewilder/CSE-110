@@ -3,12 +3,12 @@
 
 def main():
 
-    global health 
+    
     global name
     global play_decision
     global move
     global move_answer
-    health = 10
+    main.health = 10
 
     name = input ('Hello there stranger, What name may I call you by? ')
 
@@ -30,7 +30,7 @@ def main():
         + '2. I love adventures ')
 
     if play_decision == '1':
-        print ('Only cowards hide behind silence - Paulo Coelho')
+        print ('\nOnly cowards hide behind silence - Paulo Coelho')
         main()
               
 
@@ -47,24 +47,24 @@ def main():
     print ('You are at a crossroad now')
 
     if move == move_answer[0] or move == move_answer[1] or move == move_answer[2]:
-        health = health - 1
+        main.health = main.health - 1
         print ('That was a long walk.\n'
-            + 'Health -1. Your total health is now ' + str(health))
+            + 'Health -1. Your total health is now ' + str(main.health))
 
-        return health
+        
 
     else:
-        health = health - 2
+        main.health = main.health - 2
         print ('You run so fast.\n'
-            + 'Health -2. Your total health is now ' + str(health))
+            + 'Health -2. Your total health is now ' + str(main.health))
 
-    return health
+    
         
 main()
 
 def direct():
 
-    direction_gen = ['EAST', 'East', 'east', 'NORTH', 'North', 'north', 'WEST', 'West', 'West']
+    direction_gen = ['EAST', 'East', 'east', 'NORTH', 'North', 'north', 'WEST', 'West', 'west']
 
     direction = input ('\nWhich direction would you take?\n'
         + 'EAST\n'
@@ -78,14 +78,14 @@ def direct():
         + 'WEST\n')
     
     if direction == direction_gen[0] or direction == direction_gen[1] or direction == direction_gen[2]:
-        if health < 15:
+        if main.health < 15:
             print ('There is a river infront of you. Whiles you are thinking of a way to cross, a fairy appears to you.\n'
-                + 'Hello ' + name + '.' + 'In order to cross this river, you will need more health than ' + str(health) + '\n'
+                + 'Hello ' + name + '.' + 'In order to cross this river, you will need more health than ' + str(main.health) + '\n'
                 + '\nYou are back to the crossroad\n')
             direct()
 
         else:
-            print ('There is a river infront of you. Whiles you are thinking of a way to cross, a fairy appears to you.\n'
+            print ('\nThere is a river infront of you. Whiles you are thinking of a way to cross, a fairy appears to you.\n'
                 + 'Hello' + name + '.' + 'You are worthy to cross. \n'
                 + 'The fairy sprinkles her powder on you and you suddenly find yourself infront of a huge metal gate\n'
                 + 'As the gate opens, it get very shiny. So shiny, you can barely watvh.\n'
@@ -99,39 +99,39 @@ def direct():
                 reward = input ('Would you TAKE all the gold home and live a rich life or LEAVE it behind since it\'s not yours? ')
 
             if reward == reward_answer[0] or reward == reward_answer[1] or reward == reward_answer[2]:
-                print ('The fairy appears to you once again\n'
+                print ('\nThe fairy appears to you once again\n'
                     + 'Fairy: Oh you Honest and Noble warrior\n'
                     + 'You passed the test so many have failed\n'
                     + 'You are now ordained the king of this land and beyond and all this gold belongs to you\n'
-                    'YOU WIN\'! GAME OVER!'  )
+                    'YOU WIN\'! GAME OVER!')
                 
 
             else: 
-                health * 0
-                print ('You take as much gold as you can and head back with so much joy\n'
-                    + 'On your way home, you meet thieves who rob you of the gold and beat you up'
-                    + 'you are so weak that you can barely crawl back home'
-                    + 'Your health drops to ' + str(health) + '\n'
+                main.health = main.health * 0
+                print ('\nYou take as much gold as you can and head back with so much joy\n'
+                    + 'On your way home, you meet thieves who rob you of the gold and beat you up\n'
+                    + 'You are so weak that you can barely crawl back home\n'
+                    + 'Your health drops to ' + str(main.health) + '\n'
                     + 'YOU DIED. GAMER OVER\'!')
-        return health
+        
 
 
     if direction == direction_gen[3] or direction == direction_gen[4] or direction == direction_gen[5]:
        if move == move_answer[0] or move == move_answer[1] or move == move_answer[2]:
-            health - 2
-            print ('\n You keep walking and walking and walking and don\'t come accross anything.\n'
-            + 'Health - 2. Your total health is now ' + str(health))
+            main.health = main.health - 2
+            print ('\nYou keep walking and walking and walking and don\'t come accross anything.\n'
+            + 'Health - 2. Your total health is now ' + str(main.health))
 
-            return health
+
 
        if move == move_answer[3] or move == move_answer[4] or move == move_answer[5]:
-            health - 3
-            print ('\n You keep running and running and running and don\'t come accross anything.\n'
-            + 'Health -3. Your total health is now ' + str(health))
+            main.health = main.health - 3
+            print ('\nYou keep running and running and running and don\'t come accross anything.\n'
+            + 'Health -3. Your total health is now ' + str(main.health))
 
-            return health
+            
 
-       print ('\n You see a very big golden gate.\n'
+       print ('\nYou see a very big golden gate.\n'
             + 'Finally\'!' + ' You say to yourself.\n'
             + 'As you open the gate and enter, you are immediately captured by three Ogres.\n'
             + 'The golden gate mislead you into your doom.\n'
@@ -142,48 +142,47 @@ def direct():
        riddle = input ('The more of this there is, the less you can see: ')
 
        if riddle == riddle_answer[0] or riddle == riddle_answer[1] or riddle == riddle_answer[2]:
-            health + 10
-            print ('\n Ogre: How did you know the answer to that?\n'
+            main.health = main.health + 10
+            print ('\nOgre: How did you know the answer to that?\n'
                 + 'A clever one you are. Take this to replenish your health\n'
-                + 'Health + 10. Your health is now ' + str(health)
-                + '\n We are setting you free. Off you go now')
+                + 'Health + 10. Your health is now ' + str(main.health)
+                + '\nWe are setting you free. Off you go now')
             direct()
 
-            return health
+            
 
        else:
-            print ('Ogre: Wrong answer\'!'
-                + 'You are our prisoner now'
+            print ('Ogre: Wrong answer\'! '
+                + 'You are our prisoner now\n'
                 + 'GAME OVER\'!')
         
-        
+   
 
 
     if direction == direction_gen[6] or direction == direction_gen[7] or direction == direction_gen[8]:
         feed_answer = ['GIVE', 'Give', 'give', 'EAT', 'Eat', 'eat']
 
-        print('Whiles walking, you took out a piece of bread from your bag to eat.\n'
+        print('\nWhiles walking, you took out a piece of bread from your bag to eat.\n'
             + 'From nowhere appeared this little boy who looked very poor and dirty\n'
             + 'He looked up to you and begged you for a piece of the bread\n'
             + 'The bread is so little and won\'t be enough for the both of you\n')
 
-        feed = input( '\n What do you do?\n' + 'GIVE the bread to the poor boy or EAT the bread:')  
+        feed = input( '\nWhat do you do?\n' + 'GIVE the bread to the poor boy or EAT the bread:')  
 
         while feed not in feed_answer:
-            feed = input( '\n What do you do?\n' + 'GIVE the bread to the poor boy or EAT the bread:')  
+            feed = input( '\nWhat do you do?\n' + 'GIVE the bread to the poor boy or EAT the bread:')  
         
-        if feed == feed_answer[0] or feed == feed_answer[1] or feed == feed_answer[3]:
-            print ('Boy: Thank you noble warrior. Whenever you have to answer a question to save your life\n' 
-            + 'Remember it starts with a D and ends with an S')
+        if feed == feed_answer[0] or feed == feed_answer[1] or feed == feed_answer[2]:
+            print ('\nBoy: Thank you noble warrior. Whenever you have to answer a question to save your life,' 
+            + 'Health -3. Your health is now ' + str(main.health)
+            + '\nRemember it starts with a D and ends with an S')
             direct()
 
         else:
-            health - 5
-            print ('Boy: You are not worthy of what lies ahead of you')
-            direct ()
-
-            return health
-        
+            main.health = main.health - 5
+            print ('Boy: You are not worthy of what lies ahead of you\n'
+            + 'Health -5. Your health is now ' + str(main.health))
+            direct () 
 
 
 direct()
